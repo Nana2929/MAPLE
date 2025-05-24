@@ -8,19 +8,21 @@
              Train text generation and aspect recommendation (multi-label classification) jointly.
 """
 
-import random
-import pandas as pd
 import math
-from logging import Logger
 import os
-import torch
-from tqdm import tqdm
+import random
 from collections import Counter
+from logging import Logger
+
 import numpy as np
+import pandas as pd
+import torch
 import wandb
+from tqdm import tqdm
 from transformers import get_linear_schedule_with_warmup
-from .metrics import evaluate_ndcg, evaluate_hit_ratio
+
 from .constants import SaveStrategy
+from .metrics import evaluate_hit_ratio, evaluate_ndcg
 
 ###############################################################################
 # Training, evaluate, generate functions
@@ -517,7 +519,9 @@ def select_and_generate(
             text = batch.seq[:, :prefix_len].to(device)  # (batch_size, 1)
             # <u> <i> <a> <feat> `tacos` <bos> `tacos are delicious` <eos>
 
-            for _ in range(50):
+            for _ in range(
+                50
+            ):  # change "50" to seq.size(1) for fair comparison with baselines
                 outputs = model(
                     user=user,
                     item=item,
@@ -598,7 +602,7 @@ def generate(
             )  # (batch_size,); (batch_size, topk) if multi-aspect forward
             text = batch.seq[:, :prefix_len].to(device)  # (batch_size, 1)
             # <u> <i> <a> <feat> `tacos` <bos> `tacos are delicious` <eos>
-            for idx in range(max_len):
+            for idx in range(max_len):  # change this to seq.size(1)
                 # produce a word at each step
                 outputs = model(
                     user=user,

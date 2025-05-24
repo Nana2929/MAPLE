@@ -129,11 +129,13 @@ you should find the scores under `./checkpoints/reproduce/{dataset_name}/{fold}/
     ```bash
     python3 metrics/prag/run_latent_maple.py --embeds_dir="./checkpoints/reproduce/yelp/1/embeds"
     ```
+- Appendix C.2
+    - For verifying the inference speed claimed ("This adds only 0.02s latency per batch of 200 samples,..."), because MAPLE defaults to generate 50 tokens and trim the remaining after the first `<EOS>`, one needs to change `maple/utils/maple_trainer.py` L#520 and L#605 to peek the ground-truth length information so that the generation target length is consistent for all baselines. Hence the measured speed is accurate.
+    <img src="./assets/length_control.png" alt="length control" width="400" />
 ## IV. Citation
 Kindly cite us if you use our code or data.
 
 ```
-// temp
 misc{yang2024maple,
       title={MAPLE: Enhancing Review Generation with Multi-Aspect Prompt LEarning in Explainable Recommendation},
       author={Ching-Wen Yang and Che Wei Chen and Kun-da Wu and Hao Xu and Jui-Feng Yao and Hung-Yu Kao},
