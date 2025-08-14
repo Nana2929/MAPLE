@@ -134,18 +134,35 @@ you should find the scores under `./checkpoints/reproduce/{dataset_name}/{fold}/
     <img src="./assets/length_control.png" alt="length control" width="400" />
 ## IV. Citation
 Kindly cite us if you use our code or data.
-
+https://aclanthology.org/2025.acl-long.1535/
 ```
-misc{yang2024maple,
-      title={MAPLE: Enhancing Review Generation with Multi-Aspect Prompt LEarning in Explainable Recommendation},
-      author={Ching-Wen Yang and Che Wei Chen and Kun-da Wu and Hao Xu and Jui-Feng Yao and Hung-Yu Kao},
-      year={2024},
-      eprint={2408.09865},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2408.09865},
+@inproceedings{yang-etal-2025-maple,
+    title = "{MAPLE}: Enhancing Review Generation with Multi-Aspect Prompt {LE}arning in Explainable Recommendation",
+    author = "Yang, Ching-Wen  and
+      Feng, Zhi-Quan  and
+      Lin, Ying-Jia  and
+      Chen, Che Wei  and
+      Wu, Kun-da  and
+      Xu, Hao  and
+      Jui-Feng, Yao  and
+      Kao, Hung-Yu",
+    editor = "Che, Wanxiang  and
+      Nabende, Joyce  and
+      Shutova, Ekaterina  and
+      Pilehvar, Mohammad Taher",
+    booktitle = "Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+    month = jul,
+    year = "2025",
+    address = "Vienna, Austria",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.acl-long.1535/",
+    doi = "10.18653/v1/2025.acl-long.1535",
+    pages = "31803--31821",
+    ISBN = "979-8-89176-251-0",
+    abstract = "Explainable Recommendation task is designed to receive a pair of user and item and output explanations to justify why an item is recommended to a user. Many models approach review generation as a proxy for explainable recommendations. While these models can produce fluent and grammatically correct sentences, they often lack preciseness and fail to provide personalized informative recommendations. To address this issue, we propose a personalized, aspect-controlled model called Multi-Aspect Prompt LEarner (MAPLE), which integrates aspect category as another input dimension to facilitate memorizing fine-grained aspect terms. Experiments conducted on two real-world review datasets in the restaurant domain demonstrate that MAPLE significantly outperforms baseline review-generation models. MAPLE excels in both text and feature diversity, ensuring that the generated content covers a wide range of aspects. Additionally, MAPLE delivers good generation quality while maintaining strong coherence and factual relevance. The code and dataset used in this paper can be found at https://github.com/Nana2929/MAPLE."
 }
 ```
+
 ## V. Acknowledgement
 - This work was supported and funded by the **Google Pixel Research Team**.
 - We thank **Li, Lei, Yongfeng Zhang, and Li Chen** for their previous works, public codebase and datasets.
